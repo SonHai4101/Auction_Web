@@ -1,8 +1,16 @@
 .logo{
-    width: 100%;
-    height: 200px;
+    height: 150px;
+    float: left;
 }
-.logo{
-    width: 100%;
+.logo img{
+    float: left;
     height: 100%;
+}
+.option{
+    height: 150px;
+    
+    box-sizing: border-box;
+}
+.option .option-1{
+    padding: 20px 0;
 }

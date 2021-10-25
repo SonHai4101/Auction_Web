@@ -13,11 +13,28 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="logo">
-                <img src="images/logo.png" class="img-fluid" alt="">
+            <div class="col-3">
+                <div class="logo">
+                    <img src="images/logo.png" class="img-fluid" alt="">
+                </div>
             </div>
-            <div class="option">
-                
+            <div class="col-9">
+                <div class="option">
+                    <div class="option-1">
+                        <ul class="nav justify-content-end">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Sign in</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Sign up</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="input-group flex-nowrap">
+                        <input type="Search" class="form-control" placeholder="Search for item" aria-label="Search" aria-describedby="addon-wrapping">
+                        <button type="button" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
