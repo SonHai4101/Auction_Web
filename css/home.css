@@ -1,3 +1,7 @@
+body {
+    padding-bottom: 3rem;
+    color: #5a5a5a;
+  }
 .logo{
     height: 150px;
     float: left;
@@ -14,3 +18,18 @@
 .option .option-1{
     padding: 20px 0;
 }
+.main-content .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .firstcontent h2 {
+    font-weight: 400;
+  }
+  .featurette-divider {
+    margin: 5rem 0;
+  }
+  .featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.05rem;
+  }
