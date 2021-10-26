@@ -11,32 +11,9 @@
 </head>
 
 <body>
+    <?php include ('display-front/header.php'); ?>
+
     <div class="container">
-        <div class="row">
-            <div class="col-3">
-                <div class="logo">
-                    <img src="images/logo.png" class="img-fluid" alt="">
-                </div>
-            </div>
-            <div class="col-9">
-                <div class="option">
-                    <div class="option-1">
-                        <ul class="nav justify-content-end">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Sign in</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Sign up</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="input-group flex-nowrap">
-                        <input type="Search" class="form-control" placeholder="Search for item" required aria-label="Search" aria-describedby="addon-wrapping">
-                        <button type="button" class="btn btn-primary">Search</button>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="row bg-secondary">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
@@ -66,6 +43,7 @@
             </div>
         </div>
     </div>
+
     <div class="container main-content">
         <div class="row">
             <div class="col-lg-4">
@@ -99,6 +77,7 @@
                 <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
             </div>
         </div>
+
         <hr class="featurette-divider">
 
         <div class="row featurette">
@@ -149,10 +128,12 @@
 
         <hr class="featurette-divider">
     </div>
+    <!--
     <footer class="container">
         <p class="float-end"><a href="#">Back to top</a></p>
         <p>&copy; 2021 Designed For BTL_CNW </p>
-    </footer>
+    </footer> -->
+    <?php include('display-front/footer.php') ?>
 
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
