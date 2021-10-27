@@ -24,6 +24,7 @@ include("config/config.php");
                     </div>
                     <button name="btnlogin" type="submit" class="btn btn-primary">Login</button>
                 </form>
+                <p class="text-center text-muted mt-5 mb-0">Don't have an account? <a href="register.php" class="fw-bold text-body"><u>Register here</u></a></p>
             </div>
             <div class="col"></div>
         </div>

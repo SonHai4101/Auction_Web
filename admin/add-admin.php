@@ -55,7 +55,7 @@ if (!isset($_SESSION['loginOK'])) {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="manage-order.php">
+                            <a class="nav-link" href="manage-orders.php">
                                 <i class="fas fa-shopping-cart"></i>
                                 Orders
                             </a>
@@ -71,68 +71,93 @@ if (!isset($_SESSION['loginOK'])) {
             </nav>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Admin</h1>
+                <div class="main-content">
+                    <div class="wrapper">
+                        <h1>Add Admin</h1>
+
+                        <br><br>
+
+
+                        <form action="" method="POST">
+
+                            <table class="table">
+                                <tr>
+                                    <td>Full Name: </td>
+                                    <td>
+                                        <input type="text" name="full_name" placeholder="Enter Your Name">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Username: </td>
+                                    <td>
+                                        <input type="text" name="username" placeholder="Your Username">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Password: </td>
+                                    <td>
+                                        <input type="password" name="password" placeholder="Your Password">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2">
+                                        <input type="submit" name="submit" value="Add Admin" class="btn-secondary">
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                        </form>
+
+                        <div class="contaier">
+                            <div class="mb-3 row">
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Full Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="full_name">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Username</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="username">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" name="password">
+                                </div>
+                            </div>
+                            <button type="submit" name="submit" value="Add Admin" class="btn btn-secondary">Add Admin</button>
+                        </div>
+
+                    </div>
                 </div>
-                <div>
-                    <br>
-                    <a href="add-admin.php"><button class="btn btn-primary">Add new user</button></a>
+                <?php
+                include('../config/config.php');
 
-                    <br /><br /><br />
+                if (isset($_POST['submit'])) {
 
-                    <table class="table table-hover">
-                        <tr>
-                            <th>No.</th>
-                            <th>Full Name</th>
-                            <th>Username</th>
-                            <th>Actions</th>
-                        </tr>
+                    $full_name = $_POST['full_name'];
+                    $username = $_POST['username'];
+                    $password = $_POST['password'];
+                    $sql = "INSERT INTO dbo_admin SET 
+                    full_name='$full_name',
+                    username='$username',
+                    password='$password'";
 
+                    $res = mysqli_query($conn, $sql) or die(mysqli_error());
 
-                        <?php
-                        include('../config/config.php');
-
-                        $sql = "SELECT * FROM dbo_admin";
-                        $res = mysqli_query($conn, $sql);
-
-                        if ($res == TRUE) {
-                            $count = mysqli_num_rows($res);
-
-                            $sn = 1;
-
-                            if ($count > 0) {
-                                while ($rows = mysqli_fetch_assoc($res)) {
-                                    $id = $rows['id'];
-                                    $full_name = $rows['full_name'];
-                                    $username = $rows['username'];
-
-                        ?>
-
-                                    <tr>
-                                        <td><?php echo $sn++; ?>. </td>
-                                        <td><?php echo $full_name; ?></td>
-                                        <td><?php echo $username; ?></td>
-                                        <td>
-                                            <a href=""><button class="btn btn-secondary">Change Password</button></a>
-                                            <a href=""><button class="btn btn-success">Update Admin</button></a>
-                                            <a href=""><button class="btn btn-danger">Delete Admin</button></a>
-                                        </td>
-                                    </tr>
-
-                        <?php
-
-                                }
-                            }
-                        }
-
-                        ?>
-
-
-
-                    </table>
-                </div>
-
-
+                    if ($res == TRUE) {
+                        header("location: manage-admin.php");
+                    } else {
+                        header("location: manage-admin.php");
+                    }
+                }
+                ?>
             </main>
         </div>
     </div>
