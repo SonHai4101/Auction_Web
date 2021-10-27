@@ -18,6 +18,7 @@
                 $password_hash = $row['userpassword'];
                 echo $password_hash;
                 if(password_verify($password_raw,$password_hash)){
+                    $_SESSION['loginOK'] = $username;
                      header('Location: user/index.php');
                 }else{
                     echo 'Mật khẩu không khớp';

@@ -6,17 +6,6 @@ include("config/config.php");
     <div class="container-fluid">
         <div class="d-flex justify-content-center d-flex align-items-center" style="height: 200px;">
             <h1>LOGIN</h1>
-            <?php
-            if (isset($_SESSION['login'])) {
-                echo $_SESSION['login'];
-                unset($_SESSION['login']);
-            }
-
-            if (isset($_SESSION['no-login-message'])) {
-                echo $_SESSION['no-login-message'];
-                unset($_SESSION['no-login-message']);
-            }
-            ?>
         </div>
         <div class="row">
             <div class="col"></div>
