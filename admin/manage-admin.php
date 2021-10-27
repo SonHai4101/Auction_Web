@@ -37,7 +37,7 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.php">
+                            <a class="nav-link" aria-current="page" href="index.php">
                                 <i class="fas fa-home"></i>
                                 Dashboard
                             </a>
@@ -55,13 +55,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="manage-orders.php">
+                            <a class="nav-link" href="manage-order.php">
                                 <i class="fas fa-shopping-cart"></i>
                                 Orders
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="manage-admin.php">
+                            <a class="nav-link active" href="manage-admin.php">
                                 <i class="fas fa-user-tie"></i>
                                 Admin
                             </a>
@@ -72,46 +72,9 @@
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Dashboard</h1>
+                    <h1 class="h2">Admin</h1>
                 </div>
-                <div class="row" style="margin-top: 50px;">
-                    <div class="col-sm-3">
-                        <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
-                            <div class="card-header"><i class="fas fa-tag"></i><span style="font-weight: bold;"> CATEGORIES</span></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Light card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
-                            <div class="card-header"><i class="fas fa-tag"></i><span style="font-weight: bold;"> ITEMS</span></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Light card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
-                            <div class="card-header"><i class="fas fa-tag"></i><span style="font-weight: bold;"> SALES</span></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Light card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
-                            <div class="card-header"><i class="fas fa-tag"></i><span style="font-weight: bold;"> PROFIT</span></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Light card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
 
 
             </main>
