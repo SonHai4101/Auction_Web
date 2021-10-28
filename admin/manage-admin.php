@@ -55,7 +55,7 @@ if (!isset($_SESSION['loginOK'])) {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="manage-order.php">
+                            <a class="nav-link" href="manage-orders.php">
                                 <i class="fas fa-shopping-cart"></i>
                                 Orders
                             </a>
@@ -113,9 +113,7 @@ if (!isset($_SESSION['loginOK'])) {
                                         <td><?php echo $full_name; ?></td>
                                         <td><?php echo $username; ?></td>
                                         <td>
-                                            <a href=""><button class="btn btn-secondary">Change Password</button></a>
-                                            <a href=""><button class="btn btn-success">Update Admin</button></a>
-                                            <a href=""><button class="btn btn-danger">Delete Admin</button></a>
+                                            <a href="delete-admin.php?id=<?php echo $id; ?>"><button class="btn btn-danger">Delete Admin</button></a>
                                         </td>
                                     </tr>
 

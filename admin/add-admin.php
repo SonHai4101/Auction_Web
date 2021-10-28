@@ -4,6 +4,28 @@ if (!isset($_SESSION['loginOK'])) {
     header("Location: login.php");
 }
 ?>
+<?php
+                include('../config/config.php');
+
+                if (isset($_POST['submit'])) {
+
+                    $full_name = $_POST['full_name'];
+                    $username = $_POST['username'];
+                    $password = $_POST['password'];
+                    $sql = "INSERT INTO dbo_admin SET 
+                    full_name='$full_name',
+                    username='$username',
+                    password='$password'";
+
+                    $res = mysqli_query($conn, $sql) or die(mysqli_error());
+
+                    if ($res == TRUE) {
+                        header("location: manage-admin.php");
+                    } else {
+                        header("location: manage-admin.php");
+                    }
+                }
+?>
 <!doctype html>
 <html lang="en">
 
@@ -111,53 +133,32 @@ if (!isset($_SESSION['loginOK'])) {
                             </table>
 
                         </form>
-
-                        <div class="contaier">
-                            <div class="mb-3 row">
-                                <label for="inputPassword" class="col-sm-2 col-form-label">Full Name</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="full_name">
+                        <form action="" method="post">
+                            <div class="contaier">
+                                <div class="mb-3 row">
+                                    <label for="inputPassword" class="col-sm-2 col-form-label">Full Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="full_name">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="inputPassword" class="col-sm-2 col-form-label">Username</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="username">
+                                <div class="mb-3 row">
+                                    <label for="inputPassword" class="col-sm-2 col-form-label">Username</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="username">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                                <div class="col-sm-10">
-                                    <input type="password" class="form-control" name="password">
+                                <div class="mb-3 row">
+                                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" name="password">
+                                    </div>
                                 </div>
+                                <button type="submit" name="submit" value="Add Admin" class="btn btn-secondary">Add Admin</button>
                             </div>
-                            <button type="submit" name="submit" value="Add Admin" class="btn btn-secondary">Add Admin</button>
-                        </div>
-
+                        </form>
                     </div>
                 </div>
-                <?php
-                include('../config/config.php');
-
-                if (isset($_POST['submit'])) {
-
-                    $full_name = $_POST['full_name'];
-                    $username = $_POST['username'];
-                    $password = $_POST['password'];
-                    $sql = "INSERT INTO dbo_admin SET 
-                    full_name='$full_name',
-                    username='$username',
-                    password='$password'";
-
-                    $res = mysqli_query($conn, $sql) or die(mysqli_error());
-
-                    if ($res == TRUE) {
-                        header("location: manage-admin.php");
-                    } else {
-                        header("location: manage-admin.php");
-                    }
-                }
-                ?>
+                
             </main>
         </div>
     </div>
