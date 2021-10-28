@@ -99,40 +99,6 @@ if (!isset($_SESSION['loginOK'])) {
 
                         <br><br>
 
-
-                        <form action="" method="POST">
-
-                            <table class="table">
-                                <tr>
-                                    <td>Full Name: </td>
-                                    <td>
-                                        <input type="text" name="full_name" placeholder="Enter Your Name">
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>Username: </td>
-                                    <td>
-                                        <input type="text" name="username" placeholder="Your Username">
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>Password: </td>
-                                    <td>
-                                        <input type="password" name="password" placeholder="Your Password">
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td colspan="2">
-                                        <input type="submit" name="submit" value="Add Admin" class="btn-secondary">
-                                    </td>
-                                </tr>
-
-                            </table>
-
-                        </form>
                         <form action="" method="post">
                             <div class="contaier">
                                 <div class="mb-3 row">

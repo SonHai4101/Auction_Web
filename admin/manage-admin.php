@@ -76,7 +76,7 @@ if (!isset($_SESSION['loginOK'])) {
                 </div>
                 <div>
                     <br>
-                    <a href="add-admin.php"><button class="btn btn-primary">Add new user</button></a>
+                    <a href="add-admin.php"><button class="btn btn-primary">Add New Admin</button></a>
 
                     <br /><br /><br />
 

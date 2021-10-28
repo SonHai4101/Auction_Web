@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['loginOK'])){
-        header("Location: login.php");
-    }
+session_start();
+if (!isset($_SESSION['loginOK'])) {
+    header("Location: login.php");
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -74,7 +74,80 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Categories</h1>
                 </div>
-                
+                <div>
+                    <br>
+                    <a href="add-category.php"><button class="btn btn-primary">Add New Cagetory</button></a>
+
+                    <br /><br /><br />
+
+                    <table class="table table-hover">
+                        <tr>
+                            <th>No.</th>
+                            <th>Title</th>
+                            <th>Image</th>
+                            <th>Featured</th>
+                            <th>Active</th>
+                            <th>Actions</th>
+                        </tr>
+                        <?php
+                        include('../config/config.php');
+
+                        $sql = "SELECT * FROM dbo_categories";
+                        $res = mysqli_query($conn, $sql);
+                        $count = mysqli_num_rows($res);
+
+                        $sn = 1;
+                        if ($count > 0) {
+                            while ($row = mysqli_fetch_assoc($res)) {
+                                $id = $row['id'];
+                                $title = $row['title'];
+                                $image_name = $row['image_name'];
+                                $featured = $row['featured'];
+                                $active = $row['active'];
+
+                        ?>
+
+                                <tr>
+                                    <td><?php echo $sn++; ?>. </td>
+                                    <td><?php echo $title; ?></td>
+
+                                    <td>
+
+                                        <?php
+                                        if ($image_name != "") {
+                                        ?>
+                                            <img src="../images/categories/<?php echo $image_name; ?>" width="100px">
+                                        <?php
+                                        } else {
+                                            echo "<div class='error'>Image not Added.</div>";
+                                        }
+                                        ?>
+
+                                    </td>
+
+                                    <td><?php echo $featured; ?></td>
+                                    <td><?php echo $active; ?></td>
+                                    <td>
+                                        <a href="update-category.php?id=<?php echo $id; ?>"><button class="btn btn-secondary">Update Category</button></a>
+                                        <a href="delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>"><button class="btn btn-danger">Delete Category</button></a>
+                                    </td>
+                                </tr>
+
+                            <?php
+
+                            }
+                        } else {
+                            ?>
+                            <tr>
+                                <td colspan="6">
+                                    <div class="error">No Category Added.</div>
+                                </td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </table>
+                </div>
 
 
             </main>
