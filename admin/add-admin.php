@@ -100,7 +100,7 @@ if (!isset($_SESSION['loginOK'])) {
                         <br><br>
 
                         <form action="" method="post">
-                            <div class="contaier">
+                            <div>
                                 <div class="mb-3 row">
                                     <label for="inputPassword" class="col-sm-2 col-form-label">Full Name</label>
                                     <div class="col-sm-10">

@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['loginOK'])){
-        header("Location: login.php");
-    }
+session_start();
+if (!isset($_SESSION['loginOK'])) {
+    header("Location: login.php");
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -74,7 +74,75 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Items</h1>
                 </div>
-                
+                <div>
+                    <br>
+                    <a href="add-item.php"><button class="btn btn-primary">Add New Item</button></a>
+
+                    <br /><br /><br />
+
+                    <table class="table table-hover">
+                        <tr>
+                            <th>No.</th>
+                            <th>Title</th>
+                            <th>Starting Price</th>
+                            <th>Image</th>
+                            <th>Featured</th>
+                            <th>Active</th>
+                            <th>Actions</th>
+                        </tr>
+                        <?php
+                        include('../config/config.php');
+                        
+                        $sql = "SELECT * FROM dbo_items";
+                        $res = mysqli_query($conn, $sql);
+
+                        $count = mysqli_num_rows($res);
+
+                        $sn = 1;
+                        if ($count > 0) {
+                            while ($row = mysqli_fetch_assoc($res)) {
+                                $id = $row['id'];
+                                $title = $row['title'];
+                                $price = $row['price'];
+                                $image_name = $row['image_name'];
+                                $featured = $row['featured'];
+                                $active = $row['active'];
+                        ?>
+
+                                <tr>
+                                    <td><?php echo $sn++; ?>. </td>
+                                    <td><?php echo $title; ?></td>
+                                    <td>$<?php echo $price; ?></td>
+                                    <td>
+                                        <?php
+                                        if ($image_name == "") {
+                                            echo "<div class='error'>Image not Added.</div>";
+                                        } else {
+                                        ?>
+                                            <img src="../images/items/<?php echo $image_name; ?>" width="100px">
+                                        <?php
+                                        }
+                                        ?>
+                                    </td>
+                                    <td><?php echo $featured; ?></td>
+                                    <td><?php echo $active; ?></td>
+                                    <td>
+                                        <a href="update-item.php?id=<?php echo $id; ?>"><button class="btn btn-secondary">Update Item</button></a>
+                                        <a href="delete-item.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>"><button class="btn btn-danger">Delete Item</button></a>
+                                    </td>
+                                </tr>
+
+                        <?php
+                            }
+                        } else {
+                            //Food not Added in Database
+                            echo "<tr> <td colspan='7' class='error'> Food not Added Yet. </td> </tr>";
+                        }
+
+                        ?>
+                    </table>
+                </div>
+
 
 
             </main>

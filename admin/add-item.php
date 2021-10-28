@@ -4,109 +4,88 @@ if (!isset($_SESSION['loginOK'])) {
     header("Location: login.php");
 }
 ?>
-<?php
-        include('../config/config.php');
-
-        if(isset($_POST['submit']))
-        {
-            $title = $_POST['title'];
-
-            if(isset($_POST['featured']))
+<?php include('../config/config.php'); ?>
+<?php 
+            if(isset($_POST['submit']))
             {
-                $featured = $_POST['featured'];
-            }
-            else
-            {
-                $featured = "No";
-            }
+                $title = $_POST['title'];
+                $description = $_POST['description'];
+                $price = $_POST['price'];
+                $category = $_POST['category'];
 
-            if(isset($_POST['active']))
-            {
-                $active = $_POST['active'];
-            }
-            else
-            {
-                $active = "No";
-            }
-
-            //Check whether the image is selected or not and set the value for image name accoridingly
-            //print_r($_FILES['image']);
-
-            //die();//Break the Code Here
-
-            if(isset($_FILES['image']['name']))
-            {
-                //Upload the Image
-                //To upload image we need image name, source path and destination path
-                $image_name = $_FILES['image']['name'];
-                
-                // Upload the Image only if image is selected
-                if($image_name != "")
+                if(isset($_POST['featured']))
                 {
+                    $featured = $_POST['featured'];
+                }
+                else
+                {
+                    $featured = "No";
+                }
 
-                    //Auto Rename our Image
-                    //Get the Extension of our image (jpg, png, gif, etc) e.g. "specialfood1.jpg"
-                    $ext = end(explode('.', $image_name));
+                if(isset($_POST['active']))
+                {
+                    $active = $_POST['active'];
+                }
+                else
+                {
+                    $active = "No";
+                }
+                // add the image to folder images
+                if(isset($_FILES['image']['name']))
+                {
+                    $image_name = $_FILES['image']['name'];
 
-                    //Rename the Image
-                    $image_name = "Category_".rand(000, 999).'.'.$ext; // e.g. Food_Category_834.jpg
-                    
-
-                    $source_path = $_FILES['image']['tmp_name'];
-
-                    $destination_path = "../images/categories/".$image_name;
-
-                    //Finally Upload the Image
-                    $upload = move_uploaded_file($source_path, $destination_path);
-
-                    //Check whether the image is uploaded or not
-                    //And if the image is not uploaded then we will stop the process and redirect with error message
-                    if($upload==false)
+                    if($image_name!="")
                     {
-                        //SEt message
-                        $_SESSION['upload'] = "<div class='error'>Failed to Upload Image. </div>";
-                        //Redirect to Add CAtegory Page
-                        header('location: add-category.php');
-                        //STop the Process
-                        die();
+                        $ext = end(explode('.', $image_name));
+
+                        // Rename image
+                        $image_name = "Item-Name-".rand(0000,9999).".".$ext;
+                        $src = $_FILES['image']['tmp_name'];
+                        $dst = "../images/items/".$image_name;
+
+                        $upload = move_uploaded_file($src, $dst);
+
+                        if($upload==false)
+                        {
+                            header('location: add-item.php');
+                            die();
+                        }
+
                     }
 
                 }
-            }
-            else
-            {
-                //Don't Upload Image and set the image_name value as blank
-                $image_name="";
+                else
+                {
+                    $image_name = "";
+                }
+
+                // Insert Into Database
+                $sql2 = "INSERT INTO dbo_items SET 
+                    title = '$title',
+                    description = '$description',
+                    price = '$price',
+                    image_name = '$image_name',
+                    category_id = $category,
+                    featured = '$featured',
+                    active = '$active'
+                ";
+
+                $res2 = mysqli_query($conn, $sql2);
+                if($res2 == true)
+                {
+                    //Data inserted Successfullly
+                    header('location: manage-items.php');
+                }
+                else
+                {
+                    echo '<div>failed</div>';
+                }
+
+                
             }
 
-            //2. Create SQL Query to Insert CAtegory into Database
-            $sql = "INSERT INTO dbo_categories SET 
-                title='$title',
-                image_name='$image_name',
-                featured='$featured',
-                active='$active'
-            ";
-
-            //3. Execute the Query and Save in Database
-            $res = mysqli_query($conn, $sql);
-
-            //4. Check whether the query executed or not and data added or not
-            if($res==true)
-            {
-                //Query Executed and Category Added
-                //Redirect to Manage Category Page
-                header('location: manage-categories.php');
-            }
-            else
-            {
-                //Failed to Add CAtegory
-                $_SESSION['add'] = "<div class='error'>Failed to Add Category.</div>";
-                //Redirect to Manage Category Page
-                header('location: add-category.php');
-            }
-        }
-    
-    ?>
+        ?>
 <!doctype html>
 <html lang="en">
 
@@ -146,13 +125,13 @@ if (!isset($_SESSION['loginOK'])) {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="manage-categories.php">
+                            <a class="nav-link" href="manage-categories.php">
                                 <i class="far fa-folder"></i>
                                 Categories
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="manage-items.php">
+                            <a class="nav-link active" href="manage-items.php">
                                 <i class="far fa-file"></i>
                                 Items
                             </a>
@@ -176,7 +155,7 @@ if (!isset($_SESSION['loginOK'])) {
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="main-content">
                     <div class="wrapper">
-                        <h1>Add Category</h1>
+                        <h1>Add Item</h1>
 
                         <br><br>
 
@@ -189,9 +168,54 @@ if (!isset($_SESSION['loginOK'])) {
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
+                                    <label class="col-sm-2 col-form-label">Description</label>
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control" style="height: 100px" name="description"></textarea>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-sm-2 col-form-label">Starting Price</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" class="form-control" name="price">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
                                     <label class="col-sm-2 col-form-label">Select Image</label>
                                     <div class="col-sm-10">
                                         <input type="file" class="form-control" name="image">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-sm-2 col-form-label">Select Category</label>
+                                    <div class="col-sm-10">
+                                        <select name="category">
+
+                                            <?php
+                                            $sql = "SELECT * FROM dbo_categories WHERE active='Yes'";
+                                            $res = mysqli_query($conn, $sql);
+                                            $count = mysqli_num_rows($res);
+
+                                            if ($count > 0) {
+                                                // Have categories
+                                                while ($row = mysqli_fetch_assoc($res)) {
+                                                    $id = $row['id'];
+                                                    $title = $row['title'];
+
+                                            ?>
+
+                                                    <option value="<?php echo $id; ?>"><?php echo $title; ?></option>
+
+                                                <?php
+                                                }
+                                            } else {
+                                                // don't have category
+                                                ?>
+                                                <option value="0">No Category Found</option>
+                                            <?php
+                                            }
+                                            ?>
+
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
@@ -208,12 +232,12 @@ if (!isset($_SESSION['loginOK'])) {
                                         <input type="radio" class="form-check-input" name="active" value="No">No
                                     </div>
                                 </div>
-                                <button type="submit" name="submit" class="btn btn-secondary">Add Category</button>
+                                <button type="submit" name="submit" class="btn btn-secondary">Add Item</button>
                             </div>
                         </form>
                     </div>
                 </div>
-                
+
             </main>
         </div>
     </div>
