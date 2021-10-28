@@ -66,7 +66,7 @@ if (!isset($_SESSION['loginOK'])) {
                     description = '$description',
                     price = '$price',
                     image_name = '$image_name',
-                    category_id = $category,
+                    categories_id = $category,
                     featured = '$featured',
                     active = '$active'
                 ";
