@@ -178,7 +178,7 @@ if (isset($_GET['id'])) {
                     <br /><br />
 
                     <form action="" method="post" enctype="multipart/form-data">
-                        <div class="contaier">
+                        <div>
                             <div class="mb-3 row">
                                 <label class="col-sm-2 col-form-label">Title</label>
                                 <div class="col-sm-10">
