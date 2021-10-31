@@ -1,9 +1,10 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['loginOK'])){
-        header("Location: login.php");
-    }
+session_start();
+if (!isset($_SESSION['loginOK'])) {
+    header("Location: login.php");
+}
 ?>
+<?php include('../config/config.php'); ?>
 <!doctype html>
 <html lang="en">
 
@@ -77,19 +78,35 @@
                 <div class="row" style="margin-top: 50px;">
                     <div class="col-sm-3">
                         <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
-                            <div class="card-header"><i class="fas fa-tag"></i><span style="font-weight: bold;"> CATEGORIES</span></div>
+                            <div class="card-header"><i class="fas fa-tag"></i><span style="font-weight: bold;"> CATEGORY</span></div>
                             <div class="card-body">
-                                <h5 class="card-title">Light card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <?php
+                                $sql = "SELECT * FROM dbo_categories";
+                                $res = mysqli_query($conn, $sql);
+                                $count = mysqli_num_rows($res);
+                                ?>
+                                <center>
+                                    <h2><?php echo $count; ?></h2>
+                                    CATEGORIES
+                                </center>
+                                <br>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
-                            <div class="card-header"><i class="fas fa-tag"></i><span style="font-weight: bold;"> ITEMS</span></div>
+                            <div class="card-header"><i class="fas fa-tag"></i><span style="font-weight: bold;"> ITEM</span></div>
                             <div class="card-body">
-                                <h5 class="card-title">Light card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <?php
+                                $sql2 = "SELECT * FROM dbo_items";
+                                $res2 = mysqli_query($conn, $sql2);
+                                $count2 = mysqli_num_rows($res2);
+                                ?>
+                                <center>
+                                <h2><?php echo $count2; ?></h2>
+                                ITEMS
+                                </center>
+                                <br />
                             </div>
                         </div>
                     </div>

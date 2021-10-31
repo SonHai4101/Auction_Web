@@ -86,6 +86,7 @@ if (!isset($_SESSION['loginOK'])) {
                             <th>Title</th>
                             <th>Starting Price</th>
                             <th>Image</th>
+                            <th>Close Date</th>
                             <th>Featured</th>
                             <th>Active</th>
                             <th>Actions</th>
@@ -107,6 +108,7 @@ if (!isset($_SESSION['loginOK'])) {
                                 $image_name = $row['image_name'];
                                 $featured = $row['featured'];
                                 $active = $row['active'];
+                                $closedate = date_format(date_create($row['closing_date']), 'm/d/Y H:i:s');
                         ?>
 
                                 <tr>
@@ -124,6 +126,7 @@ if (!isset($_SESSION['loginOK'])) {
                                         }
                                         ?>
                                     </td>
+                                    <td><?php echo $closedate; ?></td>
                                     <td><?php echo $featured; ?></td>
                                     <td><?php echo $active; ?></td>
                                     <td>
