@@ -4,7 +4,7 @@
     <div class="container">
         <center>
             <br>
-            <h1 style="color: #fff;">Watches Categories</h1>
+            <h1 style="color:lemonchiffon;">Watches Categories</h1>
             <br>
         </center>
 

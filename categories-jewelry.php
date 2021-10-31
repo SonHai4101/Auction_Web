@@ -1,10 +1,10 @@
-<?php include('display-front/header.php'); ?>
+<?php include('display-front/header.php');?>
 
 <section class="food-menu bg-secondary">
     <div class="container">
         <center>
             <br>
-            <h1 style="color: #fff;">Jewelry Categories</h1>
+            <h1 style="color:lemonchiffon;">Jewelry Categories</h1>
             <br>
         </center>
 
@@ -70,7 +70,7 @@
             }
         } else {
             // Item not available
-            echo "<div class='error'>Food not Available.</div>";
+            echo "<div class='error'>Things not Available.</div>";
         }
 
         ?>
