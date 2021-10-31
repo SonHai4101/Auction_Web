@@ -12,7 +12,7 @@
 
     // Kiểm tra Email hoặc Username đã tồn tại chưa?
     //1. Kết nối tới Server
-    $conn = mysqli_connect('localhost','root','','btl1');
+    $conn = mysqli_connect('localhost','root','','auction');
     if(!$conn){
         die("Không thể kết nối");
     }

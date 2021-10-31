@@ -62,7 +62,7 @@
                             <script language="JavaScript" src="js/countdown.js"></script>
                         </p>
                         
-                        <a href="order.php?food_id=<?php echo $id; ?>" class="btn btn-warning">Bidding Now</a>
+                        <a href="order.php?item_id=<?php echo $id; ?>" class="btn btn-warning">Bidding Now</a>
                     </div>
                 </div>
 
