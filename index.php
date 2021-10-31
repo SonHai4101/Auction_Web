@@ -51,21 +51,21 @@
 
                 <h2>Jewelry</h2>
                 <p>Some description some description some description some description some description.</p>
-                <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+                <p><a class="btn btn-secondary" href="categories-jewelry.php">View details &raquo;</a></p>
             </div>
             <div class="col-lg-4">
                 <img src="images/categories/Category_579.jpg" class="img-fluid rounded-circle" alt="" style="height: 140px; width: 140px">
 
                 <h2>Watches</h2>
                 <p>Some description some description some description some description some description.</p>
-                <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+                <p><a class="btn btn-secondary" href="categories-watches.php">View details &raquo;</a></p>
             </div>
             <div class="col-lg-4">
                 <img src="images/categories/Category_996.jpg" class="img-fluid rounded-circle" alt="" style="height: 140px; width: 140px">
 
                 <h2>Artwork</h2>
                 <p>Some description some description some description some description some description.</p>
-                <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+                <p><a class="btn btn-secondary" href="categories-artwork.php">View details &raquo;</a></p>
             </div>
         </div>
 
