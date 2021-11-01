@@ -23,7 +23,7 @@
                     <div class="option-1">
                         <ul class="nav justify-content-end">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Sell</a>
+                                <a class="nav-link active" aria-current="page" href="sell.php">Sell</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="logout.php">Logout</a>

@@ -20,7 +20,7 @@
     <?php include ('user-display/header.php'); ?>
 
     <div class="container">
-        <div class="row bg-secondary">
+        <div class="row">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
