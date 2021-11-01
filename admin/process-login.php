@@ -5,7 +5,7 @@
             $username = $_POST['txtUsername'];
             $password = $_POST['txtPassword'];
 
-            $conn = mysqli_connect('localhost','root','','auction');
+            $conn = mysqli_connect('localhost','root','','btl1');
             if(!$conn){
                 die("Không thể kết nối");
             }

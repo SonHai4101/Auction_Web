@@ -4,7 +4,7 @@
     <div class="container">
         <center>
             <br>
-            <h1 style="color: #fff;">Artwork Categories</h1>
+            <h1 style="color:lemonchiffon;">Artwork Categories</h1>
             <br>
         </center>
 

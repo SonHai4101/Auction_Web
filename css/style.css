@@ -1,6 +1,6 @@
 body {
     padding-bottom: 3rem;
-    color: #5a5a5a;
+    color:cadetblue;
   }
 .logo{
     height: 150px;
@@ -120,4 +120,14 @@ body {
     border-color: transparent;
     box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
   }
-  
+
+  .form-control {
+    text-align: center;
+  }
+
+  .btn {
+    text-align: center;
+    margin-right: 210px;
+  }
+
+ 
