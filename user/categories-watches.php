@@ -1,17 +1,17 @@
-<?php include('display-front/header.php'); ?>
+<?php include('user-display/header.php'); ?>
 
 <section class="item-menu bg-secondary">
     <div class="container">
         <center>
             <br>
-            <h1 style="color:lemonchiffon;">Artwork Categories</h1>
+            <h1 style="color:lemonchiffon;">Watches Categories</h1>
             <br>
         </center>
 
         <?php
-        include('config/config.php');
+        include('../config/config.php');
 
-        $sql2 = "SELECT * FROM dbo_items WHERE categories_id=8";
+        $sql2 = "SELECT * FROM dbo_items WHERE categories_id=9";
 
         $res2 = mysqli_query($conn, $sql2);
         $count2 = mysqli_num_rows($res2);
@@ -36,7 +36,7 @@
                         } else {
                             //Image Available
                         ?>
-                            <img src="images/items/<?php echo $image_name; ?>" alt="" class="img-fluid rounded">
+                            <img src="../images/items/<?php echo $image_name; ?>" alt="" class="img-fluid rounded">
                         <?php
                         }
                         ?>
@@ -59,7 +59,7 @@
                                 DisplayFormat = "%%D%% Days, %%H%% Hours, %%M%% Minutes, %%S%% Seconds.";
                                 FinishMessage = "Bidding closed!";
                             </script>
-                            <script language="JavaScript" src="js/countdown.js"></script>
+                            <script language="JavaScript" src="../js/countdown.js"></script>
                         </p>
                         
                         <a href="order.php?item_id=<?php echo $id; ?>" class="btn btn-warning">Bidding Now</a>
@@ -80,4 +80,4 @@
 </section>
         <br>
 
-<?php include('display-front/footer.php'); ?>
+<?php include('user-display/footer.php'); ?>

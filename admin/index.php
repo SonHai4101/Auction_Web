@@ -114,8 +114,9 @@ if (!isset($_SESSION['loginOK'])) {
                         <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
                             <div class="card-header"><i class="fas fa-tag"></i><span style="font-weight: bold;"> SALES</span></div>
                             <div class="card-body">
-                                <h5 class="card-title">Light card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <h5 class="card-title"></h5>
+                                <p class="card-text"></p>
+                                <br><br><br>
                             </div>
                         </div>
                     </div>
@@ -123,8 +124,9 @@ if (!isset($_SESSION['loginOK'])) {
                         <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
                             <div class="card-header"><i class="fas fa-tag"></i><span style="font-weight: bold;"> PROFIT</span></div>
                             <div class="card-body">
-                                <h5 class="card-title">Light card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <h5 class="card-title"></h5>
+                                <p class="card-text"></p>
+                                <br><br><br>
                             </div>
                         </div>
                     </div>

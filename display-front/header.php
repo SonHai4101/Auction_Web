@@ -30,10 +30,12 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="input-group flex-nowrap">
-                        <input type="Search" class="form-control" placeholder="Search for item" id="txtThings" aria-hidden="true" required aria-label="Search" aria-describedby="addon-wrapping" id="search">
-                        <input type="button" id="btnThings" class="btn btn-primary" value="Search">
-                    </div>
+                    <form action="item-search.php" method="POST">
+                        <div class="input-group flex-nowrap">
+                            <input type="search" name="search" required class="form-control" placeholder="Search for item" aria-hidden="true" required aria-label="Search" aria-describedby="addon-wrapping">
+                            <input type="submit" name="submit" class="btn btn-primary" value="Search">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -42,7 +44,7 @@
 
 
 
-    <script src="../js/search.js"></script> 
+    <script src="../js/search.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 

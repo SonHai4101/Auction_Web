@@ -30,10 +30,12 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="input-group flex-nowrap">
-                        <input type="Search" class="form-control" placeholder="Search for item" required aria-label="Search" aria-describedby="addon-wrapping">
-                        <button type="button" class="btn btn-primary">Search</button>
-                    </div>
+                    <form action="item-search.php" method="POST">
+                        <div class="input-group flex-nowrap">
+                            <input type="search" name="search" required class="form-control" placeholder="Search for item" aria-hidden="true" required aria-label="Search" aria-describedby="addon-wrapping">
+                            <input type="submit" name="submit" class="btn btn-primary" value="Search">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 <?php include('display-front/header.php'); ?>
 
-<section class="food-menu bg-secondary">
+<section class="item-menu bg-secondary">
     <div class="container">
         <center>
             <br>
